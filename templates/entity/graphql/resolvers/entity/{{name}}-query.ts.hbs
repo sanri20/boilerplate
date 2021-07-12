@@ -1,0 +1,44 @@
+import { getRepository } from 'typeorm'
+import { Domain, ListParam, convertListParams } from '@things-factory/shell'
+import { User } from '@things-factory/auth-base'
+import { {{pascalCase name}} as {{pascalCase name}}Entity } from '../../../entities'
+
+export const Query = {
+  async {{camelCase name}}(_: any, { name }, context: any) {
+    const { domain, user } = context.state
+    const repository = getRepository({{pascalCase name}}Entity)
+
+    return await repository.findOne({
+      where: { domain, name }
+    })
+  },
+
+  async {{pluralCamelCase name}}(_: any, params: ListParam, context: any) {
+    const convertedParams = convertListParams(params)
+    const [items, total] = await getRepository({{pascalCase name}}Entity).findAndCount({
+      ...convertedParams
+    })
+    
+    return { items, total }
+  }
+}
+
+export const {{pascalCase name}} = {
+  async domain({{camelCase name}}) {
+    return (await getRepository({{pascalCase name}}Entity).findOne({{camelCase name}}.id, {
+      relations: ['domain']
+    }))?.domain
+  },
+
+  async creator({{camelCase name}}) {
+    return (await getRepository({{pascalCase name}}Entity).findOne({{camelCase name}}.id, {
+      relations: ['creator']
+    }))?.creator
+  },
+
+  async updater({{camelCase name}}) {
+    return (await getRepository({{pascalCase name}}Entity).findOne({{camelCase name}}.id, {
+      relations: ['updater']
+    }))?.updater
+  }
+}
