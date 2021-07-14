@@ -6,11 +6,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/things-factory/iecopro.git"
+    "url": "git+https://github.com/things-factory/things-factory.git"
   },
   "author": "hatiolab.com",
   "license": "MIT",
-  "homepage": "https://github.com/things-factory/iecopro#readme",
+  "homepage": "https://github.com/things-factory/things-factory#readme",
   "scripts": {
     "publish": "lerna publish",
     "build": "lerna run build",
@@ -18,7 +18,7 @@
     "build:client": "lerna run build:client",
     "lint": "eslint '**/*.{ts,tsx}'",
     "lint:changelogs": "node scripts/lint-changelogs.js",
-    "ci:lint-docs": "yarn generate docs && test -z \"$(git status --porcelain)\" || echo 'The root README has not been updated. Run `yarn generate docs` in the root of your iEcoPro directory and try again.'",
+    "ci:lint-docs": "yarn generate docs && test -z \"$(git status --porcelain)\" || echo 'The root README has not been updated. Run `yarn generate docs` in the root of your things-factory directory and try again.'",
     "_test": "NODE_ICU_DATA=node_modules/full-icu jest",
     "pretest": "yarn build",
     "test": "yarn _test --no-coverage",

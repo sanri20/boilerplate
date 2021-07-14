@@ -1,9 +1,9 @@
 const { readdirSync, existsSync } = require('fs')
 const path = require('path')
-const debug = require('debug')('iecopro:jest.config')
+const debug = require('debug')('things-factory:jest.config')
 
 const moduleNameMapper = getPackageNames().reduce((accumulator, name) => {
-  const scopedName = `@iecopro/${name}$`
+  const scopedName = `@things-factory/${name}$`
   accumulator[scopedName] = `<rootDir>/packages/${name}/server/index.ts`
   return accumulator
 }, {})

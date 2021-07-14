@@ -9,7 +9,7 @@ services:
   app:
     build: .
     container_name: {{ name }}
-    image: iecopro/{{ name }}:latest
+    image: things-factory/{{ name }}:latest
     privileged: true
     volumes:
       - ./logs:/app/logs
