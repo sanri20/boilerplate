@@ -2,6 +2,11 @@
 
 > Start your own project from the beginning based on `Things-Factory Boilerplate` <br>
 
+- [To setup your own project](#to-setup-your-own-project)
+- [To add dependencies](#to-add-dependencies)
+- [To insert initial data](#to-insert-initial-data)
+- [To start your application](#to-start-your-application)
+
 ## ___What you need to do...___
 
 ---
@@ -49,7 +54,8 @@
 - Things-factory framework는 이미 개발된 다양한 모듈을 가지고 있습니다.
 - 필요한 모듈을 참조하거나 직접 개발하여 `Application`을 구성 할 수 있습니다.
 
-  > 본 프로젝트는 `lerna`를 이용한 `monorepo`로 구성 되어 있기 때문에 모듈을 설치하기 위해 설치하려는 대상 모듈을 명시해야 합니다. <br>
+  > 본 프로젝트는 `lerna`를 이용한 `monorepo`로 구성되어 있기 때문에 `yarn`의 `workspace` 기능을 사용 합니다. <br>
+  > 따라서 모듈을 설치하려는 곳이되는 대상 모듈을 아래의 명령어와 같이 명시해야 합니다. <br>
 
   ```sh
   # YOUR_APPLICATION 모듈에 `@things-factory/layout-ui`를 추가하는 명령어
@@ -62,7 +68,7 @@
   > 새로 만들어진 모듈이 `npm`에 `publishing` 되기 전 까지는 `npm`을 통해 해당 모듈을 찾을 수 없기 때문입니다. <br>
   > 새롭게 개발한 모듈이 단 한번이라도 `npm`에 publishing 되었다면 `yarn`이 제공하는 커맨드를 통해 디펜던시를 추가 할 수 있습니다.
 
-- `npm`에 `publishing` 되지 않은 모듈을 `생성` & `사용` 하기 위해서는 아래의 두가지 작업을 수행해야 합니다.
+- `npm`에 `publishing` 되지 않은 모듈을 ___생성___ & ___사용___ 하기 위해서는 아래의 두가지 작업을 수행해야 합니다.
 
   1. 모듈 생성
   1. package.json 수정
@@ -80,7 +86,7 @@
     ? [PLOP] Please choose a generator. 
       app - Create a new application package from scratch 
       brand - Create a new application brand package from scratch 
-    ❯ module - Create a new module from scratch 
+    ❯ module - Create a new module from scratch # 키보드를 이용해 `module`을 선택하고 `Enter`
       migration - Generate migration from scratch 
       entity - Generate entity from scratch 
       page - Generate client page from scratch 
@@ -100,7 +106,7 @@
     > 💡 __Tip__ <br>
     > 본 리파지토리에서 작업이 이루어지는 모든 모듈은 `packages` 디렉토리 아래에 생성 됩니다.
 
-    확인한 `name` & `version` 프로퍼티를 아래의 포멧으로 조합 합니다.
+    확인한 `name` & `version` 프로퍼티를 아래의 포맷으로 조합 합니다.
 
     ```sh
     ${name}@^${version}
