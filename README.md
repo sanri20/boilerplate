@@ -2,13 +2,23 @@
 
 > Start your own project from the beginning based on `Things-Factory Boilerplate` <br>
 
+- [Prerequisites](#prerequisites)
 - [To setup your own project](#to-setup-your-own-project)
 - [To add dependencies](#to-add-dependencies)
 - [To insert initial data](#to-insert-initial-data)
 - [To start your application](#to-start-your-application)
+- [Tips to create `client` module](#tips-to-create-client-module)
 
 ## *What you need to do...*
 
+---
+
+### *Prerequisites*
+1. [Visual Studio Code](https://code.visualstudio.com/)
+1. Visual Studio Code extensions
+    - lit-html
+    - lit-plugin
+    - prettier
 ---
 ### *To setup your own project*
 1. 이 Repository를 당신의 `private` Repository로 [`Fork`](https://docs.github.com/en/get-started/quickstart/fork-a-repo) 하세요.
