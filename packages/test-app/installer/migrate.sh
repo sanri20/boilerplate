@@ -1,0 +1,1 @@
+docker exec -it test-app npm run migration -- --mode=production

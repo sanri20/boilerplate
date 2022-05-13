@@ -1,0 +1,48 @@
+{
+  "name": "@things-factory/test-app",
+  "version": "1.0.0",
+  "main": "dist-server/index.js",
+  "browser": "client/index.js",
+  "things-factory": true,
+  "license": "MIT",
+  "author": "heartyoh",
+  "description": "testapp",
+  "publishConfig": {
+    "access": "public",
+    "@things-factory:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-factory/test-app.git",
+    "directory": "packages/test-app"
+  },
+  "scripts": {
+    "serve": "things-factory test-app",
+    "serve:dev": "npm run build:server && things-factory-dev test-app",
+    "build": "tsc --p tsconfig.json",
+    "build:client": "npm run clean:client && webpack --config ../builder/webpack.config.js",
+    "build:server": "npm run clean:server && tsc",
+    "clean:server": "rm -rf dist-server",
+    "clean:client": "rm -rf dist-client",
+    "clean": "npm run clean:server && npm run clean:client",
+    "migration": "npm run build:server && things-factory-migration",
+    "migration:privileges": "npm run build:server && things-factory-migration-privileges",
+    "migration:create": "node ../../node_modules/typeorm/cli.js migration:create -d ./server/migrations",
+    "migration:generate": "node ../../node_modules/typeorm/cli.js migration:generate",
+    "migration:run": "node ../../node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "node ../../node_modules/typeorm/cli.js migration:revert",
+    "stop:dev": "kill $(lsof -t -i:3000,3001)",
+    "stop": "things-factory-stop test-app",
+    "docker": "things-factory-dockerize @things-factory/test-app:latest",
+    "docker:run": "docker run -it -p 4000:3000 @things-factory/test-app:latest"
+  },
+  "dependencies": {
+    "@things-factory/auth-ui": "^3.4.5",
+    "@things-factory/component-ui": "^3.4.5",
+    "@things-factory/shell": "^3.4.5"
+  },
+  "devDependencies": {
+    "plop": "^2.7.4",
+    "@things-factory/builder": "^3.4.5"
+  }
+}
